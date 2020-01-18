@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Department;
+use App\Position;
 
 class DepartmentController extends Controller
 {
@@ -50,7 +51,13 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $dep = Department::find($id);
+        $poss = Position::where('dep_id', $id)->get(); 
+        $context = [
+            'dep' => $dep,
+            'poss' => $poss
+        ];
+        return view('departments.show', $context);
     }
 
     /**
