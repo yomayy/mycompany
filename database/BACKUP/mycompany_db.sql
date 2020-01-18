@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 18 2020 г., 18:33
+-- Время создания: Янв 18 2020 г., 20:10
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.1.32
 
@@ -34,6 +34,16 @@ CREATE TABLE `deps` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `deps`
+--
+
+INSERT INTO `deps` (`id`, `dep_name`, `created_at`, `updated_at`) VALUES
+(1, 'Компьютерный отдел', NULL, NULL),
+(2, 'Финансовый отдел', NULL, NULL),
+(3, 'Маркетинговый отдел', NULL, NULL),
+(4, 'Юридический отдел', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,6 +167,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'max', 'yomayacc@gmail.com', NULL, '$2y$10$CcEEafJExhcpWQDXm.8F/uE6KeQtUwcv2n1wC4xRb6Ikslj2Qm1Xm', NULL, '2020-01-18 13:54:55', '2020-01-18 13:54:55');
+
+--
 -- Индексы сохранённых таблиц
 --
 
@@ -225,7 +242,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `deps`
 --
 ALTER TABLE `deps`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `emps`
@@ -261,7 +278,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Department;
 
 class DepartmentController extends Controller
 {
@@ -13,7 +14,11 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return view('departments.index');
+        $deps = Department::all();
+        $context = [
+            'deps' => $deps
+        ];
+        return view('departments.index', $context);
     }
 
     /**
